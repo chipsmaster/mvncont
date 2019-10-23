@@ -49,11 +49,12 @@ setup_volume() {
 
 # Variables to change in .mvncont eventually
 project=mvn
-base_container_tag=3.6
+base_container_tag=3-jdk-8
 host_uid=$(id -u)
 host_gid=$(id -g)
 container_normaluser=mvnuser
 volume_name=
+docker_run_opts=
 
 if [ -f .mvncont ]
 then
@@ -112,6 +113,7 @@ case "$action" in
 			-v "$volume_name:/home/$container_normaluser/.m2" \
 			-v "$(pwd):/var/project" \
 			-w /var/project \
+			$docker_run_opts \
 			"$image" $@
 		;;
 esac

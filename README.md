@@ -5,17 +5,17 @@ A custom maven container utility based on the official maven image.
 ## Setup
 
 * Download or clone this somewhere
-* Make `mvncont.sh` available in $PATH (optional) : `sudo ln -srv mvncont.sh /usr/local/bin/`
+* Make `mvncont.sh` available in $PATH (optional): `sudo ln -srv mvncont.sh /usr/local/bin/`
 
 ## Usage
 
-* Place yourself in a maven project folder : `cd ~/projects/x`
+* Place yourself in a maven project folder: `cd ~/projects/x`
 * Run `mvncont.sh` from this folder, the arguments will be the command to run inside the container, examples:
     * `mvncont.sh mvn --version`
     * `mvncont.sh bash`
     * `mvncont.sh mvn clean install`
 
-The script will :
+The script will:
 
 * Create a docker image based on the official maven image if not done yet ; the image will include a normal user that maps directly to your current user
 * Create a docker volume to hold maven user data (~/.m2) if not done yet
